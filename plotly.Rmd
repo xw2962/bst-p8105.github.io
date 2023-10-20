@@ -24,11 +24,14 @@ nyc_airbnb =
     neighbourhood_group == "Manhattan",
     room_type == "Entire home/apt",
     price %in% 100:500)
+# price in the range of 100 to 500. 
 ```
+## Plotly plots
 
 ```{r}
 nyc_airbnb %>%
   mutate(text_label = str_c("Price: $", price, "\nRating: ", rating)) %>% 
+# "\nRating: " \n means starting a new line of the label. 
   plot_ly(
     x = ~lat, y = ~long, type = "scatter", mode = "markers",
     color = ~price, text = ~text_label, alpha = 0.5)

@@ -1,12 +1,13 @@
 ---
-title: "Untitled"
+title: "Dashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
+    source: embed
 ---
 
-```{r setup}
+```{r}
 library(tidyverse)
 library(flexdashboard)
 library(p8105.datasets)
@@ -60,7 +61,4 @@ nyc_airbnb %>%
   plot_ly(x = ~neighbourhood, y = ~n, color = ~neighbourhood, type = "bar", colors = "viridis")
 ```
 
-```{r}
-rmarkdown::render("flexdashboard_sample.Rmd", output_format = "flexdashboard::flex_dashboard")
-```
 
